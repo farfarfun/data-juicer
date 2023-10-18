@@ -40,6 +40,11 @@ def init_configs(args=None):
     # "dc": "path to a directory that can be created if it does not exist")
     # "drw": "path to a directory that exists and is readable and writeable")
     parser.add_argument(
+        '--limit',
+        type=int,
+        default=9999999999999,
+        help='THe limit of data.')
+    parser.add_argument(
         '--project_name',
         type=str,
         default='hello_world',

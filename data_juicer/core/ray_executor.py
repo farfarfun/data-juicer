@@ -62,6 +62,7 @@ class RayExecutor:
         for op_cfg, op in zip(self.process_list, self.ops):
             op_name, _ = list(op_cfg.items())[0]
             try:
+                dataset = dataset.limit(self.cfg.limit)
                 if isinstance(op, Mapper):
                     dataset = dataset.map(op.process)
                 elif isinstance(op, Filter):
