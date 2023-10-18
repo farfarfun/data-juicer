@@ -2,7 +2,7 @@
 name: syncToGitee
 on:
   push:
-    tags:
+    branches:
       - '*'
 jobs:
   repo-sync:
