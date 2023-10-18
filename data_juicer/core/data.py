@@ -246,6 +246,7 @@ class NestedDataset(Dataset):
         return nested_obj_factory(super().select(*args, **kargs))
     
     def limit(self, size):
+        size = min(size, len(self))
         return self.select(range(size))
 
     @classmethod
