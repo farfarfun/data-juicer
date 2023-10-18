@@ -112,6 +112,7 @@ class Executor:
             op_name, op_args = list(op_cfg.items())[0]
             prev = dataset  # record last dataset
             try:
+                dataset = dataset.limit(self.cfg.limit)
                 if isinstance(op, Mapper):
                     tmp = dataset.map(function=op.process,
                                       num_proc=self.cfg.np,
