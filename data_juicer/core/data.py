@@ -244,6 +244,9 @@ class NestedDataset(Dataset):
         """Override the select func, such that selected samples can be accessed
         by nested manner."""
         return nested_obj_factory(super().select(*args, **kargs))
+    
+    def limit(self, size):
+        return self.select(range(size))
 
     @classmethod
     def from_dict(cls, *args, **kargs):
